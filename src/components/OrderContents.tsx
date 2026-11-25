@@ -2,7 +2,7 @@ import type { OrderItemType } from "../types";
 
 type OrderContentsProps = {
   order: OrderItemType[];
-  removeFromOrder: (id: number) => void;
+  removeFromOrder: (id: OrderItemType["id"]) => void;
 };
 
 const OrderContents = ({ order, removeFromOrder }: OrderContentsProps) => {

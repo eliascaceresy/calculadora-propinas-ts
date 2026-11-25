@@ -16,7 +16,7 @@ const useOrder = () => {
     }
   };
 
-  const removeFromOrder = (id: number) => {
+  const removeFromOrder = (id: OrderItemType["id"]) => {
     const updatedOrder = order.filter(item => item.id !== id);
     setOrder(updatedOrder);
   };

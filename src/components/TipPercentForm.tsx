@@ -5,6 +5,11 @@ type TipPercentFormType = {
 const TipPercentForm = ({ setTip }: TipPercentFormType) => {
   const tipOptions = [
     {
+      id: "tip-5",
+      value: 0.05,
+      label: "5%",
+    },
+    {
       id: "tip-10",
       value: 0.1,
       label: "10%",

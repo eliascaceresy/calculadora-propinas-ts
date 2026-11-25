@@ -16,7 +16,12 @@ const useOrder = () => {
     }
   };
 
-  return { order, addItemToOrder };
+  const removeFromOrder = (id: number) => {
+    const updatedOrder = order.filter(item => item.id !== id);
+    setOrder(updatedOrder);
+  };
+
+  return { order, addItemToOrder, removeFromOrder };
 };
 
 export default useOrder;

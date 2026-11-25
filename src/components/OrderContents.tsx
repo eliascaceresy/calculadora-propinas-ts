@@ -2,9 +2,10 @@ import type { OrderItemType } from "../types";
 
 type OrderContentsProps = {
   order: OrderItemType[];
+  removeFromOrder: (id: number) => void;
 };
 
-const OrderContents = ({ order }: OrderContentsProps) => {
+const OrderContents = ({ order, removeFromOrder }: OrderContentsProps) => {
   return (
     <div className="space-y-3 mt-5">
       {order.length > 0 ? (
@@ -22,7 +23,12 @@ const OrderContents = ({ order }: OrderContentsProps) => {
                   Cantidad: {orderItem.quantity} - Total: ${orderItem.quantity * orderItem.price}
                 </p>
               </div>
-              <button className="bg-red-600 h-8 w-8 text-white rounded-full font-black hover:cursor-pointer">X</button>
+              <button
+                className="bg-red-600 h-8 w-8 text-white rounded-full font-black hover:cursor-pointer"
+                onClick={() => removeFromOrder(orderItem.id)}
+              >
+                X
+              </button>
             </div>
           );
         })

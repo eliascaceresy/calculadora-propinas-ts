@@ -4,9 +4,10 @@ import type { OrderItemType } from "../types";
 type OrderTotalProps = {
   order: OrderItemType[];
   tip: number;
+  placeOrder: () => void;
 };
 
-const OrderTotal = ({ order, tip }: OrderTotalProps) => {
+const OrderTotal = ({ order, tip, placeOrder }: OrderTotalProps) => {
   const subtotal = useMemo(() => {
     return order.reduce((total, item) => total + item.quantity * item.price, 0);
   }, [order]);
@@ -33,7 +34,13 @@ const OrderTotal = ({ order, tip }: OrderTotalProps) => {
           Total a pagar: <span>${total}</span>
         </p>
       </div>
-      <button></button>
+      <button
+        disabled={total === 0}
+        onClick={() => placeOrder()}
+        className="disabled:opacity-10 hover:cursor-pointer w-full p-3 uppercase bg-black text-white font-bold mt-10 rounder-lg"
+      >
+        Guardar Orden
+      </button>
     </>
   );
 };

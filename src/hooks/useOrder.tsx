@@ -22,7 +22,12 @@ const useOrder = () => {
     setOrder(updatedOrder);
   };
 
-  return { order, tip, addItemToOrder, removeFromOrder, setTip };
+  const placeOrder = () => {
+    setOrder([]);
+    setTip(0);
+  };
+
+  return { order, tip, addItemToOrder, removeFromOrder, setTip, placeOrder };
 };
 
 export default useOrder;

@@ -3,6 +3,7 @@ import type { OrderItemType } from "../types";
 
 const useOrder = () => {
   const [order, setOrder] = useState<OrderItemType[]>([]);
+  const [tip, setTip] = useState<number>(0);
 
   const addItemToOrder = (item: OrderItemType) => {
     const itemExist = order.findIndex(element => element.id === item.id);
@@ -21,7 +22,7 @@ const useOrder = () => {
     setOrder(updatedOrder);
   };
 
-  return { order, addItemToOrder, removeFromOrder };
+  return { order, tip, addItemToOrder, removeFromOrder, setTip };
 };
 
 export default useOrder;

@@ -3,12 +3,17 @@ import type { OrderItemType } from "../types";
 
 type OrderTotalProps = {
   order: OrderItemType[];
+  tip: number;
 };
 
-const OrderTotal = ({ order }: OrderTotalProps) => {
+const OrderTotal = ({ order, tip }: OrderTotalProps) => {
   const subtotal = useMemo(() => {
     return order.reduce((total, item) => total + item.quantity * item.price, 0);
   }, [order]);
+
+  const tipAmount = useMemo(() => {
+    return tip * subtotal;
+  }, [tip, order]);
 
   return (
     <>
@@ -18,10 +23,10 @@ const OrderTotal = ({ order }: OrderTotalProps) => {
           Subtotal a pagar: <span>${subtotal}</span>
         </p>
         <p>
-          Propina: <span>${0}</span>
+          Propina: <span>${tipAmount}</span>
         </p>
         <p>
-          Total a pagar: <span>${0}</span>
+          Total a pagar: <span>${tipAmount + subtotal}</span>
         </p>
       </div>
       <button></button>

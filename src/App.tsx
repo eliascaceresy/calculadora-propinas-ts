@@ -1,7 +1,9 @@
 function App() {
   return (
     <>
-      <h1 className="text-indigo-600">Hola Mundo</h1>
+      <header className="bg-indigo-500 py-10 text-center">
+        <h1 className="text-4xl text-white font-black">Calculadora de Propinas y Consumos</h1>
+      </header>
     </>
   );
 }
